@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rooView"
+    tools:context="tmproject.hlhj.fhp.webapp.MainActivity">
+    <RelativeLayout
+        android:id="@+id/loTittle"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tvTittle"
+            android:textColor="#333"
+            android:textSize="17sp"
+            android:text="@string/appname"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/btClear"
+            android:text="清缓存"
+            android:textColor="#333"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableTop="@mipmap/ic_qunfa_shanchu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/loBottom"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/btHome"
+            android:src="@mipmap/ico_sy"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/btBack"
+            android:src="@mipmap/ico_jtz"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:scaleType="centerInside"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/btFor"
+            android:src="@mipmap/ico_jty"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/btRefresh"
+            android:src="@mipmap/ico_sx"
+            android:scaleType="centerInside"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/lo2"
+        android:layout_below="@+id/loTittle"
+        android:layout_above="@+id/loBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.netease.readwap.view.ReadWebView
+            android:id="@+id/webView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lo"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/btGoBack"
+        android:visibility="gone"
+        android:src="@mipmap/new_exit"
+        android:elevation="1dp"
+        android:background="@drawable/red_c"
+        android:scaleType="centerInside"
+        android:layout_width="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:layout_height="30dp" />
+    <RelativeLayout
+        android:id="@+id/bg"
+        android:visibility="gone"
+        android:background="#3a000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imgBg"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

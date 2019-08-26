@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "tmproject.hlhj.fhp.webapp233"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "fa12deb00a38161ec15fdd12", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                GETUI_APP_ID:"",
+                GETUI_APP_KEY:"",
+                GETUI_APP_SECRET:"",
+        ]
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.code.gson:gson:2.8.1'
+    implementation('com.github.bumptech.glide:glide:4.5.0') {
+        exclude group: "com.android.support"
+    }
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.getui:sdk:2.12.5.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile(name: 'WMH5SDK-1.0.0', ext: 'aar')
+    compile 'cn.jiguang.sdk:jpush:3.3.0'
+    // 此处以JPush 3.3.0 版本为例。
+    compile 'cn.jiguang.sdk:jcore:2.0.1'
+    // 此处以JCore 2.0.1 版本为例。
+    implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1310_43612_sharewithdownload_withoutGame_obfs_20180706_163319.jar')
+    api 'com.just.agentweb:agentweb:4.0.3-beta' // (必选)
+}
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
